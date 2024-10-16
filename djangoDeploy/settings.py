@@ -118,8 +118,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# URL para acceder a los archivos estáticos
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Si estás desarrollando localmente, podrías agregar esto (opcional)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'deployRender/static'),  # Directorio de archivos estáticos
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
