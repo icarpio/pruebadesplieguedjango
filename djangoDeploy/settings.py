@@ -25,7 +25,7 @@ import os
 SECRET_KEY = 'django-insecure-w^m)w*%%qnl)rmp&86u9v=v8*kq%+b+end$@kl2d8(em0)0o_7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['lamuela.onrender.com', '*']
 
 
