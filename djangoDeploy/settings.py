@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Asegúrate de que esté aquí IMPORTANTE!!!
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -125,12 +126,8 @@ if DEBUG:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'deployRender', 'static')]
 else:
     # En producción, cuando DEBUG es False
-    STATIC_ROOT = os.path.join(BASE_DIR, 'deployRender', 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Carpeta estática raíz
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
