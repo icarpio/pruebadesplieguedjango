@@ -125,7 +125,7 @@ if DEBUG:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'deployRender', 'static')]
 else:
     # En producción, cuando DEBUG es False
-    STATIC_ROOT = [os.path.join(BASE_DIR, 'deployRender', 'staticfiles')]
+    STATIC_ROOT = os.path.join(BASE_DIR, 'deployRender', 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_FINDERS = [
