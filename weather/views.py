@@ -6,28 +6,37 @@ def weather_form(request):
     return render(request, 'weather/weather_form.html')
 
 
+import requests
+
 def get_city_or_town_coordinates(city_name, country='España'):
     try:
-        url = f'https://nominatim.openstreetmap.org/search?q={city_name},{country}&format=json'
-        print(url)
-        response = requests.get(url)
+        url = 'https://nominatim.openstreetmap.org/search'
+        params = {
+            'q': f'{city_name}, {country}',
+            'format': 'json'
+        }
+        headers = {
+            'User-Agent': 'djangoDeploy/1.0 (icarpiodeveloper@gmail.com)'  # Cambia esto por tu información
+        }
+
+        response = requests.get(url, params=params, headers=headers)
         response.raise_for_status()
 
         data = response.json()
 
         if data:
             for location in data:
-                if location.get('addresstype') in ['city', 'town','suburb']:
+                if location.get('addresstype') in ['city', 'town', 'suburb']:
                     latitude = location['lat']
                     longitude = location['lon']
                     return latitude, longitude
-        
+
         return None, None
 
     except requests.exceptions.RequestException as e:
         print(f"Error en la solicitud: {e}")
         return None, None
-
+    
 def get_weather_data(request):
     city_name = request.GET.get('city')
     lat, lon = get_city_or_town_coordinates(city_name)
