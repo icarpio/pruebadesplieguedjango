@@ -1,19 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Meteorológicos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #dddddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .container {
+            text-align: center; /* Centra el texto dentro del div */
+            border: 1px solid #ddd; /* Borde del contenedor */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 8px; /* Esquinas redondeadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            background-color: #f9f9f9; /* Color de fondo del contenedor */
+        }
+        .button-bonito {
+            background-color: #007BFF; /* Color azul */
+            color: white; /* Color del texto */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Esquinas redondeadas */
+            padding: 4px 10px; /* Espaciado interno */
+            font-size: 16px; /* Tamaño de la fuente */
+            font-weight: bold; /* Negrita */
+            text-align: center; /* Centra el texto */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+        }
+        
+        .button-bonito:hover {
+            background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+            transform: scale(1.05); /* Efecto de aumento */
+        }
+        
+        .button-bonito:active {
+            transform: scale(0.95); /* Efecto de pulsación al hacer clic */
+        }
+        
+    </style>
+</head>
+
+
 {% extends 'deployRender/base.html' %}
 
+
 {% block content %}
-    <h1>Consulta el Clima</h1>
+    <h1>Consulta el clima actual:</h1>
+    <br>
+    <div class="container">
     <form action="{% url 'get_weather' %}" method="get">
         <label for="city">Ingrese el nombre de la ciudad:</label>
         <input type="text" id="city" name="city" required>
-        <button type="submit">Consultar</button>
+        <button type="submit" class="button-bonito">Consultar</button>
     </form>
 
     {% if weather_data %}
-        <h2>Datos del Clima en {{ weather_data.city }}</h2>
+        <br>
+        <h2>Ciudad: {{ weather_data.city }}</h2>
+        <br>
         <p>Latitud: {{ weather_data.coordinates.latitude }}</p>
         <p>Longitud: {{ weather_data.coordinates.longitude }}</p>
         <p>Temperatura: {{ weather_data.weather.current.temperature_2m }} °C</p>
         <p>Velocidad del Viento: {{ weather_data.weather.current.wind_speed_10m }} m/s</p>
-        <!-- Otros datos del clima -->
     {% endif %}
+    </div>
+    <br>
+    <h1>Prevision</h1>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Temperatura</th>
+                <th>Humedad</th>
+                <th>Viento</th>
+                <th>P.LLuvia</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for weather in weather_data.weather_list %}
+            <tr>
+                <td>{{ weather.time }}</td>
+                <td>{{ weather.temp }}</td>
+                <td>{{ weather.humidity }}</td>
+                <td>{{ weather.wind }}</td>
+                <td>{{ weather.rain }} %</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
