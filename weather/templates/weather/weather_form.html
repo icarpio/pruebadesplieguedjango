@@ -75,12 +75,13 @@
     {% if weather_data %}
         <br>
         <h2>Ciudad: {{ weather_data.city }}</h2>
+        <h4>{{ weather_data.dis }}</h4>
         <br>
         <p>Latitud: {{ weather_data.coordinates.latitude }}</p>
         <p>Longitud: {{ weather_data.coordinates.longitude }}</p>
         <p>Temperatura: {{ weather_data.weather.current.temperature_2m }} °C</p>
         <p>Velocidad del Viento: {{ weather_data.weather.current.wind_speed_10m }} m/s</p>
-    {% endif %}
+
     </div>
     <br>
     <h1>Prevision</h1>
@@ -107,4 +108,6 @@
             {% endfor %}
         </tbody>
     </table>
+    {% endif %}
+    
 {% endblock %}

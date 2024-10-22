@@ -71,9 +71,10 @@ def get_weather_data(request):
             return render(request, 'weather/weather_form.html', {
                 'weather_data': {
                     'city': city_name,
+                    'dis':dis,
                     'coordinates': {'latitude': lat, 'longitude': lon},
                     'weather': weather_data,
-                    'weather_list': weather_list             
+                    'weather_list': weather_list     
                 }
             })
         
