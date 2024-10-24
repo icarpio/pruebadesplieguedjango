@@ -1,3 +1,4 @@
+{% extends 'deployRender/base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -34,18 +35,19 @@
                 .container {
                     padding: 10px; /* Menos padding en móviles */
                 }
+                .img{
+                    max-width:50px,
+                    max-height:10px
+                }
                 .button-bonito {
-            width: auto; /* Cambia a auto para que no ocupe todo el ancho */
-            max-width: 200px; /* Ancho máximo del botón */
-            margin: 0 auto; /* Centra el botón */
-            font-size: 14px; /* Tamaño de fuente más pequeño */
+                width: auto; /* Cambia a auto para que no ocupe todo el ancho */
+                max-width: 200px; /* Ancho máximo del botón */
+                margin: 0 auto; /* Centra el botón */
+                font-size: 14px; /* Tamaño de fuente más pequeño */
     }
             }
         </style>
     </head>
-
-
-{% extends 'deployRender/base.html' %}
 
 
 
