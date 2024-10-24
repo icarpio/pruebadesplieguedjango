@@ -6,20 +6,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado de Números y Estrellas</title>
+    <style>
+        .container {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        /* Media Queries para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px; /* Menos padding en móviles */
+            }
+        }
+    </style>
 </head>
 {% block content %}
 <body>
-    <img src="{% static 'euro.png' %}" style="width: 800px ; height: 150px ;" alt="Primitiva">
-    <h1>Resultado de Números y Estrellas</h1>
-    <form action="{% url 'generate_numbers_and_stars' %}" method="get">
-    <ul>
-        {% for serie in series %}
-            <li>
-                Números: {{ serie.numbers }} | Estrellas: {{ serie.stars }}
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'form_view_stars' %}">Volver</a>
+    <div class="container">
+        <img src="{% static 'euro.png' %}" style="width: 800px ; height: 150px ;" alt="Primitiva">
+        <h1>Resultado de Números y Estrellas</h1>
+        <form action="{% url 'generate_numbers_and_stars' %}" method="get">
+        <ul>
+            {% for serie in series %}
+                <li>
+                    Números: {{ serie.numbers }} | Estrellas: {{ serie.stars }}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'form_view_stars' %}">Volver</a>
+    </div>
+   
 </body>
 </html>
 {% endblock %}
