@@ -1,44 +1,53 @@
-{% extends 'deployRender/base.html' %}
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Números y Estrellas</title>
-    <style>
-        .container {
-            text-align: center;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #f9f9f9;
-            max-width: 100%; /* Asegura que el contenedor no exceda el ancho de la pantalla */
-            overflow: hidden; /* Evita que los elementos interiores se desborden */
-        }
-
-        img {
-            width: 100%;      /* La imagen tomará el ancho completo del contenedor */
-            height: auto;     /* Mantiene la relación de aspecto */
-            max-height: 200px; /* Limita la altura máxima de la imagen */
-            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
-        }
-
-        /* Media Queries para pantallas pequeñas */
-        @media (max-width: 600px) {
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EuroMillones</title>
+        <style>
             .container {
-                padding: 10px; /* Menos padding en móviles */
+                text-align: center;
+                border: 1px solid #ddd;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color: #f9f9f9;
             }
-            img {
-                width: 10%;     
-     
-                height: 50px;     
+            .button-bonito {
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 4px 10px;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
             }
-        }
-    </style>
-</head>
+            
+            /* Media Queries para pantallas pequeñas */
+            @media (max-width: 600px) {
+                .container {
+                    padding: 10px; /* Menos padding en móviles */
+                }
+                .button-bonito {
+            width: auto; /* Cambia a auto para que no ocupe todo el ancho */
+            max-width: 200px; /* Ancho máximo del botón */
+            margin: 0 auto; /* Centra el botón */
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+            }
+        </style>
+    </head>
+
+
+{% extends 'deployRender/base.html' %}
+
+
 
 {% block content %}
 <body>
