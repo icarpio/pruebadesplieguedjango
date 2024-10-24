@@ -29,7 +29,7 @@
 {% block content %}
 <body>
     <div class="container">
-        <img src="{% static 'euro.png' %}" style="width: 800px ; height: 150px ;" alt="Primitiva">
+        <img src="{% static 'euro.png' %}" alt="Primitiva">
     <h1>Selecciona el número de series a generar</h1>
     <form action="{% url 'generate_numbers_and_stars' %}" method="get">
         <label for="selection">Número de series:</label>
