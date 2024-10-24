@@ -1,0 +1,31 @@
+{% extends 'deployRender/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Números y Estrellas</title>
+  
+</head>
+
+{% block content %}
+<body>
+   
+    <img src="{% static 'euro.png' %}" style="width: 800px ; height: 150px ;" alt="Primitiva">
+    
+
+    <h1>Selecciona el número de series a generar</h1>
+    <form action="{% url 'generate_numbers_and_stars' %}" method="get">
+        <label for="selection">Número de series:</label>
+        <select name="selection" id="selection">
+            {% for key, value in options.items %}
+                <option value="{{ key }}">Generar {{ value }} serie(s)</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Generar</button>
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -8,13 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Datos Meteorológicos</title>
         <style>
-            /* Estilos generales */
+            /* Estilos generales (para pantallas grandes) */
             table {
                 width: 100%;
                 border-collapse: collapse;
                 margin: 20px 0;
-                display: block;
-                overflow-x: auto; /* Permite desplazamiento horizontal */
             }
             th, td {
                 padding: 12px;
@@ -49,31 +47,28 @@
                 text-align: center;
                 cursor: pointer;
                 transition: background-color 0.3s, transform 0.2s;
-                width: auto; /* Cambia a auto para móviles */
             }
-            .button-bonito:hover {
-                background-color: #0056b3;
-                transform: scale(1.05);
-            }
-            .button-bonito:active {
-                transform: scale(0.95);
-            }
-    
-            /* Media Queries */
+            
+            /* Media Queries para pantallas pequeñas */
             @media (max-width: 600px) {
                 .container {
-                    padding: 10px;
+                    padding: 10px; /* Menos padding en móviles */
                 }
                 table {
-                    font-size: 14px;
+                    font-size: 14px; /* Tamaño de fuente más pequeño */
+                    display: block; /* Hace que la tabla se comporte como un bloque */
+                    overflow-x: auto; /* Permite desplazamiento horizontal */
+                    white-space: nowrap; /* Evita que el texto se rompa */
                 }
                 th, td {
-                    padding: 8px;
+                    padding: 8px; /* Menos padding en celdas */
                 }
                 .button-bonito {
-                    width: 100%; /* Botón ocupa todo el ancho */
-                    font-size: 14px;
-                }
+        width: auto; /* Cambia a auto para que no ocupe todo el ancho */
+        max-width: 200px; /* Ancho máximo del botón */
+        margin: 0 auto; /* Centra el botón */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
             }
         </style>
     </head>

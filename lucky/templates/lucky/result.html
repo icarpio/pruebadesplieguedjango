@@ -1,0 +1,22 @@
+{% extends 'deployRender/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+</head>
+{% block content %}
+<body>
+    <img src="{% static 'pri.png' %}"  class="custom-img" alt="Primitiva">
+    <h1>Series Generadas</h1>
+    <ul>
+        {% for serie in series %}
+            <li>{{ serie }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'form_view' %}">Volver</a>
+</body>
+</html>
+{% endblock %}
