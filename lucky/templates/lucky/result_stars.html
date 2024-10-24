@@ -49,14 +49,13 @@
                 }
             </style>
         </head>
-    
-    
-    
-    
+
     {% block content %}
     <body>
         <div class="container">
-            <img src="{% static 'euro.png' %}" alt="Primitiva">
+            <div class="container">
+                <img src="{% static 'euro.png' %}" alt="Primitiva">
+            </div>
             <h1>Resultado de Números y Estrellas</h1>
             <form action="{% url 'generate_numbers_and_stars' %}" method="get">
                 <ul>
