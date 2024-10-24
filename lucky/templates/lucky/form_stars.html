@@ -15,16 +15,21 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             background-color: #f9f9f9;
+            max-width: 100%; /* Asegura que el contenedor no exceda el ancho de la pantalla */
+            overflow: hidden; /* Evita que los elementos interiores se desborden */
         }
 
-      
+        img {
+            width: 100%;      /* La imagen tomará el ancho completo del contenedor */
+            height: auto;     /* Mantiene la relación de aspecto */
+            max-height: 200px; /* Limita la altura máxima de la imagen */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+        }
+
         /* Media Queries para pantallas pequeñas */
         @media (max-width: 600px) {
             .container {
                 padding: 10px; /* Menos padding en móviles */
-            }
-            img {
-                max-width: 100%; /* Ensure image does not exceed container width */
             }
         }
     </style>
