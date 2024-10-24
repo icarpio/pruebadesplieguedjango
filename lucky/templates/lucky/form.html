@@ -8,10 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Generador de Series</title>
         <style>
-            .custom-img {
-                width: 800px;
-                height: 200px;
-            }
+    
             .container {
                 text-align: center;
                 border: 1px solid #ddd;
@@ -32,7 +29,7 @@
     {% block content %}
     <body>
         <div class="container">
-            <img src="{% static 'pri.png' %}"  class="custom-img" alt="Primitiva">
+            <img src="{% static 'pri.png' %}"  alt="Primitiva">
         <h1>Selecciona el número de series a generar</h1>
         <form action="{% url 'generate_numbers' %}" method="get">
             <label for="selection">Número de series:</label>
