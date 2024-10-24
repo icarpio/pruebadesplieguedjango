@@ -57,7 +57,7 @@
         <div class="container">
             <img src="{% static 'euro.png' %}" alt="Primitiva" style="max-width: 50%; height: auto; object-fit: contain;">
         </div>
-    <h1>Selecciona el número de series a generar</h1>
+    <h3>Selecciona el número de series a generar</h3>
     <form action="{% url 'generate_numbers_and_stars' %}" method="get">
         <label for="selection">Número de series:</label>
         <select name="selection" id="selection">
@@ -68,8 +68,6 @@
         <button type="submit">Generar</button>
     </form>
     </div>
-   
-    
 </body>
 </html>
 {% endblock %}

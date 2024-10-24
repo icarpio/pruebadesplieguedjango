@@ -39,30 +39,25 @@
         </style>
         
     </head>
+  
     {% block content %}
     <body>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="{% static 'pri.png' %}" alt="Primitiva">
-                </div>
+        <div class="container">
+            <div class="container">
+                <img src="{% static 'pri.png' %}" alt="Primitiva" style="max-width: 50%; height: auto; object-fit: contain;">
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <h1>Series Generadas</h1>
-                    <ul>
-                        {% for serie in series %}
-                            <li>{{ serie }}</li>
-                        {% endfor %}
-                    </ul>
-                    <a href="{% url 'form_view' %}">Volver</a>
-                </div>
-            </div>
+            <h1>Series Generadas</h1>
+            <ul>
+                {% for serie in series %}
+                    <li>{{ serie }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'form_view' %}">Volver</a>
         </div>
-       
     </body>
     </html>
     {% endblock %}
+
 
     
        

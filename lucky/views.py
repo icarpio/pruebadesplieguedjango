@@ -29,7 +29,8 @@ def generate_numbers(request):
         try:
             for _ in range(serie_options[selection]):
                 serie = sorted(random.sample(range(1, 51), 6))  # Asegúrate de incluir el 50
-                series.append(serie)
+                serie_formateada = [f"{n:02d}" for n in serie]  # Agrega un cero delante a los números de una cifra
+                series.append(" ".join(serie_formateada))  # Convierte la lista a una cadena sin comillas
             return render(request, 'lucky/result.html', {'series': series})
         except Exception as e:
             return HttpResponseServerError(f"Error: {e}")
@@ -48,7 +49,9 @@ def generate_numbers_and_stars(request):
             for _ in range(serie_options[selection]):
                 numbers = sorted(random.sample(range(1, 51), 5))  # 5 números del 1 al 50
                 stars = sorted(random.sample(range(1, 13), 2))  # 2 estrellas del 1 al 11
-                series.append({'numbers': numbers, 'stars': stars})
+                numbers_formateados = [str(n).zfill(2) for n in numbers]  # Agrega un cero delante a los números de una cifra
+                stars_formateados = [str(n).zfill(2) for n in stars]  # Agrega un cero delante a las estrellas de una cifra
+                series.append({'numbers': " ".join(numbers_formateados), 'stars': " ".join(stars_formateados)})
             return render(request, 'lucky/result_stars.html', {'series': series})
         except Exception as e:
             return HttpResponseServerError(f"Error: {e}")
