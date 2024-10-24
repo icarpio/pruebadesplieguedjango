@@ -54,7 +54,7 @@
     <body>
         <div class="container">
             <div class="container">
-                <img src="{% static 'euro.png' %}" alt="Primitiva">
+                <img src="{% static 'euro.png' %}" alt="Primitiva" style="max-width: 50%; height: auto; object-fit: contain;">
             </div>
             <h1>Resultado de Números y Estrellas</h1>
             <form action="{% url 'generate_numbers_and_stars' %}" method="get">
